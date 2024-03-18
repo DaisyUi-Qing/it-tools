@@ -12,7 +12,7 @@ const v35Args = ref({ namespace: '6ba7b811-9dad-11d1-80b4-00c04fd430c8', name: '
 
 const validUuidRules = [
   {
-    message: 'Invalid UUID',
+    message: '无效的 UUID',
     validator: (value: string) => {
       if (value === nilUuid) {
         return true;
@@ -42,16 +42,16 @@ const [uuids, refreshUUIDs] = computedRefreshable(() => withDefaultOnError(() =>
     return generator(index);
   }).join('\n'), ''));
 
-const { copy } = useCopy({ source: uuids, text: 'UUIDs copied to the clipboard' });
+const { copy } = useCopy({ source: uuids, text: '复制成功' });
 </script>
 
 <template>
   <div>
-    <c-buttons-select v-model:value="version" :options="versions" label="UUID version" label-width="100px" mb-2 />
+    <c-buttons-select v-model:value="version" :options="versions" label="UUID版本" label-width="100px" mb-2 />
 
     <div mb-2 flex items-center>
-      <span w-100px>Quantity </span>
-      <n-input-number v-model:value="count" flex-1 :min="1" :max="50" placeholder="UUID quantity" />
+      <span w-100px>数量 </span>
+      <n-input-number v-model:value="count" flex-1 :min="1" :max="50" placeholder="UUID数量" />
     </div>
 
     <div v-if="version === 'v3' || version === 'v5'">
@@ -107,10 +107,10 @@ const { copy } = useCopy({ source: uuids, text: 'UUIDs copied to the clipboard' 
 
     <div flex justify-center gap-3>
       <c-button autofocus @click="copy()">
-        Copy
+        复制
       </c-button>
       <c-button @click="refreshUUIDs">
-        Refresh
+        刷新
       </c-button>
     </div>
   </div>

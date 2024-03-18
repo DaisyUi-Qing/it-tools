@@ -21,7 +21,7 @@ const [token, refreshToken] = computedRefreshable(() =>
   }),
 );
 
-const { copy } = useCopy({ source: token, text: t('tools.token-generator.copied') });
+const { copy } = useCopy({ source: token, text: t('复制成功') });
 </script>
 
 <template>

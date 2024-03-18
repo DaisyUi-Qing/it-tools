@@ -27,7 +27,7 @@ async function onVerifyClicked(uploadedFile: File) {
 <template>
   <div style="flex: 0 0 100%">
     <div mx-auto max-w-600px>
-      <c-file-upload title="Drag and drop a PDF file here, or click to select a file" accept=".pdf" @file-upload="onVerifyClicked" />
+      <c-file-upload title="将 PDF 文件拖放到此处，或单击以选择文件" accept=".pdf" @file-upload="onVerifyClicked" />
 
       <c-card v-if="file" mt-4 flex gap-2>
         <div font-bold>

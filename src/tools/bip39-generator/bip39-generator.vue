@@ -53,11 +53,11 @@ const entropyValidation = useValidation({
   rules: [
     {
       validator: value => value === '' || (value.length <= 32 && value.length >= 16 && value.length % 4 === 0),
-      message: 'Entropy length should be >= 16, <= 32 and be a multiple of 4',
+      message: '熵长度应为 >= 16，<= 32，并且是 4 的倍数',
     },
     {
       validator: value => /^[a-fA-F0-9]*$/.test(value),
-      message: 'Entropy should be an hexadecimal string',
+      message: '熵应为十六进制字符串',
     },
   ],
 });
@@ -67,7 +67,7 @@ const mnemonicValidation = useValidation({
   rules: [
     {
       validator: value => isNotThrowing(() => mnemonicToEntropy(value, languages[language.value])),
-      message: 'Invalid mnemonic',
+      message: '无效的助记词',
     },
   ],
 });
@@ -76,8 +76,8 @@ function refreshEntropy() {
   entropy.value = generateEntropy();
 }
 
-const { copy: copyEntropy } = useCopy({ source: entropy, text: 'Entropy copied to the clipboard' });
-const { copy: copyPassphrase } = useCopy({ source: passphrase, text: 'Passphrase copied to the clipboard' });
+const { copy: copyEntropy } = useCopy({ source: entropy, text: '复制成功' });
+const { copy: copyPassphrase } = useCopy({ source: passphrase, text: '复制成功' });
 </script>
 
 <template>
@@ -87,13 +87,13 @@ const { copy: copyPassphrase } = useCopy({ source: passphrase, text: 'Passphrase
         <c-select
           v-model:value="language"
           searchable
-          label="Language:"
+          label="语言:"
           :options="Object.keys(languages)"
         />
       </n-gi>
       <n-gi span="2">
         <n-form-item
-          label="Entropy (seed):"
+          label="熵 (种子):"
           :feedback="entropyValidation.message"
           :validation-status="entropyValidation.status"
         >
@@ -115,7 +115,7 @@ const { copy: copyPassphrase } = useCopy({ source: passphrase, text: 'Passphrase
       </n-gi>
     </n-grid>
     <n-form-item
-      label="Passphrase (mnemonic):"
+      label="助记词:"
       :feedback="mnemonicValidation.message"
       :validation-status="mnemonicValidation.status"
     >
