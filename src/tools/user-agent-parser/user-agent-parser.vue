@@ -19,34 +19,34 @@ const userAgentInfo = computed(() => withDefaultOnError(() => getUserAgentInfo(u
 
 const sections: UserAgentResultSection[] = [
   {
-    heading: 'Browser',
+    heading: '浏览器',
     icon: Browser,
     content: [
       {
-        label: 'Name',
+        label: '名称',
         getValue: block => block?.browser.name,
-        undefinedFallback: 'No browser name available',
+        undefinedFallback: '没有可用的浏览器名称',
       },
       {
-        label: 'Version',
+        label: '版本',
         getValue: block => block?.browser.version,
-        undefinedFallback: 'No browser version available',
+        undefinedFallback: '没有可用的浏览器版本',
       },
     ],
   },
   {
-    heading: 'Engine',
+    heading: '引擎',
     icon: Engine,
     content: [
       {
-        label: 'Name',
+        label: '名称',
         getValue: block => block?.engine.name,
-        undefinedFallback: 'No engine name available',
+        undefinedFallback: '没有可用的引擎名称',
       },
       {
-        label: 'Version',
+        label: '版本',
         getValue: block => block?.engine.version,
-        undefinedFallback: 'No engine version available',
+        undefinedFallback: '没有可用的引擎版本',
       },
     ],
   },
@@ -55,35 +55,35 @@ const sections: UserAgentResultSection[] = [
     icon: Adjustments,
     content: [
       {
-        label: 'Name',
+        label: '名称',
         getValue: block => block?.os.name,
-        undefinedFallback: 'No OS name available',
+        undefinedFallback: '没有可用的操作系统名称',
       },
       {
-        label: 'Version',
+        label: '版本',
         getValue: block => block?.os.version,
-        undefinedFallback: 'No OS version available',
+        undefinedFallback: '没有可用的操作系统版本',
       },
     ],
   },
   {
-    heading: 'Device',
+    heading: '设备',
     icon: Devices,
     content: [
       {
-        label: 'Model',
+        label: '型号',
         getValue: block => block?.device.model,
-        undefinedFallback: 'No device model available',
+        undefinedFallback: '没有可用的设备型号',
       },
       {
-        label: 'Type',
+        label: '类型',
         getValue: block => block?.device.type,
-        undefinedFallback: 'No device type available',
+        undefinedFallback: '无可用的设备类型',
       },
       {
-        label: 'Vendor',
+        label: '供应商',
         getValue: block => block?.device.vendor,
-        undefinedFallback: 'No device vendor available',
+        undefinedFallback: '没有可用的设备供应商',
       },
     ],
   },
@@ -92,9 +92,9 @@ const sections: UserAgentResultSection[] = [
     icon: Cpu,
     content: [
       {
-        label: 'Architecture',
+        label: '构架',
         getValue: block => block?.cpu.architecture,
-        undefinedFallback: 'No CPU architecture available',
+        undefinedFallback: '没有可用的 CPU 架构',
       },
     ],
   },
@@ -105,9 +105,9 @@ const sections: UserAgentResultSection[] = [
   <div>
     <c-input-text
       v-model:value="ua"
-      label="User agent string"
+      label="User agent 字符串"
       multiline
-      placeholder="Put your user-agent here..."
+      placeholder="请输入你的内容..."
       clearable
       raw-text
       rows="2"

@@ -12,12 +12,12 @@ const encodedValidation = useValidation({
   rules: [
     {
       validator: value => isNotThrowing(() => encodeURIComponent(value)),
-      message: 'Impossible to parse this string',
+      message: '无法解析此字符串',
     },
   ],
 });
 
-const { copy: copyEncoded } = useCopy({ source: encodeOutput, text: 'Encoded string copied to the clipboard' });
+const { copy: copyEncoded } = useCopy({ source: encodeOutput, text: '复制成功' });
 
 const decodeInput = ref('Hello%20world%20%3A)');
 const decodeOutput = computed(() => withDefaultOnError(() => decodeURIComponent(decodeInput.value), ''));
@@ -27,70 +27,70 @@ const decodeValidation = useValidation({
   rules: [
     {
       validator: value => isNotThrowing(() => decodeURIComponent(value)),
-      message: 'Impossible to parse this string',
+      message: '无法解析此字符串',
     },
   ],
 });
 
-const { copy: copyDecoded } = useCopy({ source: decodeOutput, text: 'Decoded string copied to the clipboard' });
+const { copy: copyDecoded } = useCopy({ source: decodeOutput, text: '复制成功' });
 </script>
 
 <template>
-  <c-card title="Encode">
+  <c-card title="编码">
     <c-input-text
       v-model:value="encodeInput"
-      label="Your string :"
+      label="输入 :"
       :validation="encodedValidation"
       multiline
       autosize
-      placeholder="The string to encode"
+      placeholder="请输入要编码的内容"
       rows="2"
       mb-3
     />
 
     <c-input-text
-      label="Your string encoded :"
+      label="已编码的内容 :"
       :value="encodeOutput"
       multiline
       autosize
       readonly
-      placeholder="Your string encoded"
+      placeholder="已编码的内容"
       rows="2"
       mb-3
     />
 
     <div flex justify-center>
       <c-button @click="copyEncoded()">
-        Copy
+       复制
       </c-button>
     </div>
   </c-card>
-  <c-card title="Decode">
+  <c-card title="解码">
     <c-input-text
       v-model:value="decodeInput"
-      label="Your encoded string :"
+      label="输入 :"
       :validation="decodeValidation"
       multiline
       autosize
-      placeholder="The string to decode"
+      placeholder="请输入要解码的内容"
       rows="2"
       mb-3
     />
 
     <c-input-text
-      label="Your string decoded :"
+      label="解码的内容 :"
       :value="decodeOutput"
       multiline
       autosize
       readonly
-      placeholder="Your string decoded"
+      placeholder="解码的内容"
       rows="2"
       mb-3
     />
 
     <div flex justify-center>
       <c-button @click="copyDecoded()">
-        Copy
+        复制
       </c-button>
     </div>
   </c-card>

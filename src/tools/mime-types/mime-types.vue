@@ -21,17 +21,17 @@ const mimeTypeFound = computed(() => (selectedExtension.value ? extensionToMimeT
 <template>
   <c-card>
     <n-h2 style="margin-bottom: 0">
-      Mime type to extension
+      MIME 类型到扩展名
     </n-h2>
     <div style="opacity: 0.8">
-      Know which file extensions are associated to a mime-type
+      了解哪些文件扩展名与 mime 类型相关联
     </div>
     <c-select
       v-model:value="selectedMimeType"
       searchable
       my-4
       :options="mimeToExtensionsOptions"
-      placeholder="Select your mimetype here... (ex: application/pdf)"
+      placeholder="在此处选择您的 mimetype... (例如: application/pdf)"
     />
 
     <div v-if="extensionsFound.length > 0">
@@ -55,17 +55,17 @@ const mimeTypeFound = computed(() => (selectedExtension.value ? extensionToMimeT
 
   <c-card>
     <n-h2 style="margin-bottom: 0">
-      File extension to mime type
+      MIME 类型的文件扩展名
     </n-h2>
     <div style="opacity: 0.8">
-      Know which mime type is associated to a file extension
+      了解哪种 MIME 类型与文件扩展名相关联
     </div>
     <c-select
       v-model:value="selectedExtension"
       searchable
       my-4
       :options="extensionToMimeTypeOptions"
-      placeholder="Select your mimetype here... (ex: application/pdf)"
+      placeholder="在此处选择您的 mimetype... (例如: application/pdf)"
     />
 
     <div v-if="selectedExtension">
@@ -85,8 +85,8 @@ const mimeTypeFound = computed(() => (selectedExtension.value ? extensionToMimeT
     <n-table>
       <thead>
         <tr>
-          <th>Mime types</th>
-          <th>Extensions</th>
+          <th>Mime 类型</th>
+          <th>扩展</th>
         </tr>
       </thead>
       <tbody>

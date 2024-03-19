@@ -5,7 +5,6 @@ import { tool as basicAuthGenerator } from './basic-auth-generator';
 import { tool as asciiTextDrawer } from './ascii-text-drawer';
 
 import { tool as textToUnicode } from './text-to-unicode';
-import { tool as safelinkDecoder } from './safelink-decoder';
 import { tool as pdfSignatureChecker } from './pdf-signature-checker';
 import { tool as numeronymGenerator } from './numeronym-generator';
 import { tool as macAddressGenerator } from './mac-address-generator';
@@ -62,7 +61,6 @@ import { tool as jsonViewer } from './json-viewer';
 import { tool as jwtParser } from './jwt-parser';
 import { tool as loremIpsumGenerator } from './lorem-ipsum-generator';
 import { tool as mathEvaluator } from './math-evaluator';
-import { tool as metaTagGenerator } from './meta-tag-generator';
 import { tool as mimeTypes } from './mime-types';
 import { tool as otpCodeGeneratorAndValidator } from './otp-code-generator-and-validator';
 import { tool as qrCodeGenerator } from './qr-code-generator';
@@ -117,7 +115,6 @@ export const toolsByCategory: ToolCategory[] = [
       urlParser,
       deviceInformation,
       basicAuthGenerator,
-      metaTagGenerator,
       otpCodeGeneratorAndValidator,
       mimeTypes,
       jwtParser,
@@ -127,7 +124,6 @@ export const toolsByCategory: ToolCategory[] = [
       userAgentParser,
       httpStatusCodes,
       jsonDiff,
-      safelinkDecoder,
     ],
   },
   {
