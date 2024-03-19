@@ -12,7 +12,7 @@ extend([cmykPlugin, hwbPlugin, namesPlugin, lchPlugin]);
 
 const formats = {
   picker: buildColorFormat({
-    label: 'color picker',
+    label: '颜色选择',
     format: (v: Colord) => v.toHex(),
     type: 'color-picker',
   }),

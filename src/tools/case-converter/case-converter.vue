@@ -18,63 +18,63 @@ const baseConfig = {
   stripRegexp: /[^A-Za-zÀ-ÖØ-öø-ÿ]+/gi,
 };
 
-const input = ref('lorem ipsum dolor sit amet');
+const input = ref('Java is the best language');
 
 const formats = computed(() => [
   {
-    label: 'Lowercase:',
+    label: '小写:',
     value: input.value.toLocaleLowerCase(),
   },
   {
-    label: 'Uppercase:',
+    label: '大写:',
     value: input.value.toLocaleUpperCase(),
   },
   {
-    label: 'Camelcase:',
+    label: '驼峰命名:',
     value: camelCase(input.value, baseConfig),
   },
   {
-    label: 'Capitalcase:',
+    label: '首字母大写:',
     value: capitalCase(input.value, baseConfig),
   },
   {
-    label: 'Constantcase:',
+    label: '常数大小写:',
     value: constantCase(input.value, baseConfig),
   },
   {
-    label: 'Dotcase:',
+    label: '点阵:',
     value: dotCase(input.value, baseConfig),
   },
   {
-    label: 'Headercase:',
+    label: '标题大小写:',
     value: headerCase(input.value, baseConfig),
   },
   {
-    label: 'Nocase:',
+    label: '原样输出:',
     value: noCase(input.value, baseConfig),
   },
   {
-    label: 'Paramcase:',
+    label: '参数化:',
     value: paramCase(input.value, baseConfig),
   },
   {
-    label: 'Pascalcase:',
+    label: '帕斯卡命名:',
     value: pascalCase(input.value, baseConfig),
   },
   {
-    label: 'Pathcase:',
+    label: '路径:',
     value: pathCase(input.value, baseConfig),
   },
   {
-    label: 'Sentencecase:',
+    label: '句子大小写:',
     value: sentenceCase(input.value, baseConfig),
   },
   {
-    label: 'Snakecase:',
+    label: '蛇形命名:',
     value: snakeCase(input.value, baseConfig),
   },
   {
-    label: 'Mockingcase:',
+    label: '模拟案例:',
     value: input.value
       .split('')
       .map((char, index) => (index % 2 === 0 ? char.toUpperCase() : char.toLowerCase()))
@@ -93,8 +93,8 @@ const inputLabelAlignmentConfig = {
   <c-card>
     <c-input-text
       v-model:value="input"
-      label="Your string:"
-      placeholder="Your string..."
+      label="原始字符:"
+      placeholder="请输入你的内容..."
       raw-text
       v-bind="inputLabelAlignmentConfig"
     />

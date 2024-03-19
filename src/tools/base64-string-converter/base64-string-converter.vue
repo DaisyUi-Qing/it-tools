@@ -25,56 +25,56 @@ const b64ValidationWatch = [decodeUrlSafe];
 </script>
 
 <template>
-  <c-card title="String to base64">
-    <n-form-item label="Encode URL safe" label-placement="left">
+  <c-card title="字符串转base64">
+    <n-form-item label="开启url安全转换" label-placement="left">
       <n-switch v-model:value="encodeUrlSafe" />
     </n-form-item>
     <c-input-text
       v-model:value="textInput"
       multiline
-      placeholder="Put your string here..."
+      placeholder="请输入..."
       rows="5"
-      label="String to encode"
+      label="要编码的字符串"
       raw-text
       mb-5
     />
 
     <c-input-text
-      label="Base64 of string"
+      label="编码后的Base64"
       :value="base64Output"
       multiline
       readonly
-      placeholder="The base64 encoding of your string will be here"
+      placeholder="字符串编码后的base64"
       rows="5"
       mb-5
     />
 
     <div flex justify-center>
       <c-button @click="copyTextBase64()">
-        Copy base64
+        复制Base64
       </c-button>
     </div>
   </c-card>
 
-  <c-card title="Base64 to string">
-    <n-form-item label="Decode URL safe" label-placement="left">
+  <c-card title="Base64转字符串">
+    <n-form-item label="开启安全转换" label-placement="left">
       <n-switch v-model:value="decodeUrlSafe" />
     </n-form-item>
     <c-input-text
       v-model:value="base64Input"
       multiline
-      placeholder="Your base64 string..."
+      placeholder="请输入..."
       rows="5"
       :validation-rules="b64ValidationRules"
       :validation-watch="b64ValidationWatch"
-      label="Base64 string to decode"
+      label="需要解密的Base64"
       mb-5
     />
 
     <c-input-text
       v-model:value="textOutput"
-      label="Decoded string"
-      placeholder="The decoded string will be here"
+      label="解密后的内容"
+      placeholder="解密后的内容"
       multiline
       rows="5"
       readonly
@@ -83,7 +83,7 @@ const b64ValidationWatch = [decodeUrlSafe];
 
     <div flex justify-center>
       <c-button @click="copyText()">
-        Copy decoded string
+        复制
       </c-button>
     </div>
   </c-card>

@@ -11,16 +11,16 @@ const transformer = (value: string) => value.trim() === '' ? '' : withDefaultOnE
 const rules: UseValidationRule<string>[] = [
   {
     validator: (v: string) => v === '' || JSON5.parse(v),
-    message: 'Provided JSON is not valid.',
+    message: '提供的JSON无效.',
   },
 ];
 </script>
 
 <template>
   <format-transformer
-    input-label="Your JSON"
-    input-placeholder="Paste your JSON here..."
-    output-label="TOML from your JSON"
+    input-label="你的 JSON"
+    input-placeholder="在此处粘贴 JSON..."
+    output-label="JSON转换后的TOML"
     output-language="toml"
     :input-validation-rules="rules"
     :transformer="transformer"

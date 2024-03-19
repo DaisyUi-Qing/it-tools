@@ -12,7 +12,7 @@ const base64InputValidation = useValidation({
   source: base64Input,
   rules: [
     {
-      message: 'Invalid base 64 string',
+      message: '无效的base64',
       validator: value => isValidBase64(value.trim()),
     },
   ],
@@ -33,7 +33,7 @@ function downloadFile() {
 
 const fileInput = ref() as Ref<File>;
 const { base64: fileBase64 } = useBase64(fileInput);
-const { copy: copyFileBase64 } = useCopy({ source: fileBase64, text: 'Base64 string copied to the clipboard' });
+const { copy: copyFileBase64 } = useCopy({ source: fileBase64, text: '复制成功' });
 
 async function onUpload(file: File) {
   if (file) {
@@ -43,11 +43,11 @@ async function onUpload(file: File) {
 </script>
 
 <template>
-  <c-card title="Base64 to file">
+  <c-card title="Base64转文件">
     <c-input-text
       v-model:value="base64Input"
       multiline
-      placeholder="Put your base64 file string here..."
+      placeholder="输入你的base64..."
       rows="5"
       :validation="base64InputValidation"
       mb-2
@@ -55,18 +55,18 @@ async function onUpload(file: File) {
 
     <div flex justify-center>
       <c-button :disabled="base64Input === '' || !base64InputValidation.isValid" @click="downloadFile()">
-        Download file
+        下载文件
       </c-button>
     </div>
   </c-card>
 
-  <c-card title="File to base64">
-    <c-file-upload title="Drag and drop a file here, or click to select a file" @file-upload="onUpload" />
-    <c-input-text :value="fileBase64" multiline readonly placeholder="File in base64 will be here" rows="5" my-2 />
+  <c-card title="文件转base64">
+    <c-file-upload title="将文件拖放到此处，或单击以选择文件" @file-upload="onUpload" />
+    <c-input-text :value="fileBase64" multiline readonly placeholder="base64 中的文件" rows="5" my-2 />
 
     <div flex justify-center>
       <c-button @click="copyFileBase64()">
-        Copy
+        复制
       </c-button>
     </div>
   </c-card>

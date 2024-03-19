@@ -17,7 +17,7 @@ const { attrs: validationNumeral } = useValidation({
   rules: [
     {
       validator: value => value >= MIN_ARABIC_TO_ROMAN && value <= MAX_ARABIC_TO_ROMAN,
-      message: `We can only convert numbers between ${MIN_ARABIC_TO_ROMAN.toLocaleString()} and ${MAX_ARABIC_TO_ROMAN.toLocaleString()}`,
+      message: `我们只能转换 ${MIN_ARABIC_TO_ROMAN.toLocaleString()} 和 ${MAX_ARABIC_TO_ROMAN.toLocaleString()} 之间的`,
     },
   ],
 });
@@ -30,18 +30,18 @@ const validationRoman = useValidation({
   rules: [
     {
       validator: value => isValidRomanNumber(value),
-      message: 'The input you entered is not a valid roman number',
+      message: '你输入的数字不是有效的罗马数字',
     },
   ],
 });
 
-const { copy: copyRoman } = useCopy({ source: outputRoman, text: 'Roman number copied to the clipboard' });
-const { copy: copyArabic } = useCopy({ source: () => String(outputNumeral), text: 'Arabic number copied to the clipboard' });
+const { copy: copyRoman } = useCopy({ source: outputRoman, text: '复制成功' });
+const { copy: copyArabic } = useCopy({ source: () => String(outputNumeral), text: '复制成功' });
 </script>
 
 <template>
   <div>
-    <c-card title="Arabic to roman">
+    <c-card title="阿拉伯数字转换为罗马数字">
       <div flex items-center justify-between>
         <n-form-item v-bind="validationNumeral as any">
           <n-input-number v-model:value="inputNumeral" :min="1" style="width: 200px" :show-button="false" />
@@ -54,7 +54,7 @@ const { copy: copyArabic } = useCopy({ source: () => String(outputNumeral), text
         </c-button>
       </div>
     </c-card>
-    <c-card title="Roman to arabic" mt-5>
+    <c-card title="罗马数字转换为阿拉伯数字" mt-5>
       <div flex items-center justify-between>
         <c-input-text v-model:value="inputRoman" style="width: 200px" :validation="validationRoman" />
 
