@@ -156,7 +156,7 @@ function onSearchInput() {
               {{ selectedOption.label }}
             </span>
             <span v-else class="placeholder" lh-normal>
-              {{ placeholder ?? 'Select an option' }}
+              {{ placeholder ?? '选择一个选项' }}
             </span>
           </slot>
         </div>
@@ -169,7 +169,7 @@ function onSearchInput() {
           <template v-if="!filteredOptions.length">
             <slot name="empty">
               <div px-4 py-1 opacity-70>
-                No results found
+                未找到结果
               </div>
             </slot>
           </template>

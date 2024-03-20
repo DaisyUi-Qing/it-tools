@@ -20,7 +20,7 @@ const svgString = computed(() => {
   return `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}"${size}>
   <rect width="${w}" height="${h}" fill="${bgColor.value}"></rect>
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="${fontSize.value}px" fill="${fgColor.value}">${text}</text>   
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="${fontSize.value}px" fill="${fgColor.value}">${text}</text>
 </svg>
   `.trim();
 });
@@ -35,57 +35,57 @@ const { download } = useDownloadFileFromBase64({ source: base64 });
   <div>
     <n-form label-placement="left" label-width="100">
       <div flex gap-3>
-        <n-form-item label="Width (in px)" flex-1>
-          <n-input-number v-model:value="width" placeholder="SVG width..." min="1" />
+        <n-form-item label="宽 (in px)" flex-1>
+          <n-input-number v-model:value="width" placeholder="SVG 的宽度..." min="1" />
         </n-form-item>
-        <n-form-item label="Background" flex-1>
+        <n-form-item label="背景色" flex-1>
           <n-color-picker v-model:value="bgColor" :modes="['hex']" />
         </n-form-item>
       </div>
       <div flex gap-3>
-        <n-form-item label="Height (in px)" flex-1>
-          <n-input-number v-model:value="height" placeholder="SVG height..." min="1" />
+        <n-form-item label="高 (in px)" flex-1>
+          <n-input-number v-model:value="height" placeholder="SVG 的高度..." min="1" />
         </n-form-item>
-        <n-form-item label="Text color" flex-1>
+        <n-form-item label="文本颜色" flex-1>
           <n-color-picker v-model:value="fgColor" :modes="['hex']" />
         </n-form-item>
       </div>
       <div flex gap-3>
-        <n-form-item label="Font size" flex-1>
-          <n-input-number v-model:value="fontSize" placeholder="Font size..." min="1" />
+        <n-form-item label="字体大小" flex-1>
+          <n-input-number v-model:value="fontSize" placeholder="Font 的大小..." min="1" />
         </n-form-item>
 
         <c-input-text
           v-model:value="customText"
-          label="Custom text"
-          :placeholder="`Default is ${width}x${height}`"
+          label="自定义内容"
+          :placeholder="`默认大小 ${width}x${height}`"
           label-position="left"
           label-width="100px"
           label-align="right"
           flex-1
         />
       </div>
-      <n-form-item label="Use exact size" label-placement="left">
+      <n-form-item label="使用精确的尺寸" label-placement="left">
         <n-switch v-model:value="useExactSize" />
       </n-form-item>
     </n-form>
 
-    <n-form-item label="SVG HTML element">
+    <n-form-item label="SVG HTML 元素">
       <TextareaCopyable :value="svgString" copy-placement="none" />
     </n-form-item>
-    <n-form-item label="SVG in Base64">
+    <n-form-item label="Base64 中的 SVG">
       <TextareaCopyable :value="base64" copy-placement="none" />
     </n-form-item>
 
     <div flex justify-center gap-3>
       <c-button @click="copySVG()">
-        Copy svg
+        复制svg
       </c-button>
       <c-button @click="copyBase64()">
-        Copy base64
+        复制base64
       </c-button>
       <c-button @click="download()">
-        Download svg
+        下载svg
       </c-button>
     </div>
   </div>

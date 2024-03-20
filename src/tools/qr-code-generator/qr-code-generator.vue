@@ -7,9 +7,9 @@ const foreground = ref('#000000ff');
 const background = ref('#ffffffff');
 const errorCorrectionLevel = ref<QRCodeErrorCorrectionLevel>('medium');
 
-const errorCorrectionLevels = ['low', 'medium', 'quartile', 'high'];
+const errorCorrectionLevels = ['低', '中等', '高质量', '极高'];
 
-const text = ref('https://it-tools.tech');
+const text = ref('love and peace');
 const { qrcode } = useQRCode({
   text,
   color: {
@@ -32,23 +32,23 @@ const { download } = useDownloadFileFromBase64({ source: qrcode, filename: 'qr-c
           label-position="left"
           label-width="130px"
           label-align="right"
-          label="Text:"
+          label="文本:"
           multiline
           rows="1"
           autosize
-          placeholder="Your link or text..."
+          placeholder="请输入你的文本..."
           mb-6
         />
         <n-form label-width="130" label-placement="left">
-          <n-form-item label="Foreground color:">
+          <n-form-item label="二维码颜色:">
             <n-color-picker v-model:value="foreground" :modes="['hex']" />
           </n-form-item>
-          <n-form-item label="Background color:">
+          <n-form-item label="背景颜色:">
             <n-color-picker v-model:value="background" :modes="['hex']" />
           </n-form-item>
           <c-select
             v-model:value="errorCorrectionLevel"
-            label="Error resistance:"
+            label="抗误差:"
             label-position="left"
             label-width="130px"
             label-align="right"
@@ -60,7 +60,7 @@ const { download } = useDownloadFileFromBase64({ source: qrcode, filename: 'qr-c
         <div flex flex-col items-center gap-3>
           <n-image :src="qrcode" width="200" />
           <c-button @click="download">
-            Download qr-code
+            下载二维码
           </c-button>
         </div>
       </n-gi>
